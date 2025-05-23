@@ -1,4 +1,4 @@
-package dev.sandul.viewmodelexample.search_viewmodel
+package dev.sandul.viewmodelexample.search_user.search_viewmodel
 
 data class SearchUiState(
     val isLoading: Boolean = false,

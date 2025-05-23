@@ -1,4 +1,4 @@
-package dev.sandul.viewmodelexample.search_viewmodel
+package dev.sandul.viewmodelexample.search_user.ui
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -24,11 +24,14 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import dev.sandul.viewmodelexample.search_user.search_viewmodel.SearchViewModel
 
 @Composable
 fun SearchScreen(viewModel: SearchViewModel = viewModel()) {
     val state by viewModel.uiState.collectAsState()
     var query by remember { mutableStateOf("") }
+
+
     Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
         Column(
             modifier = Modifier
