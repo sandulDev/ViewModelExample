@@ -3,16 +3,19 @@ package dev.sandul.viewmodelexample.search_user.search_viewmodel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dev.sandul.viewmodelexample.search_user.search_repository.SearchUserRepository
-import dev.sandul.viewmodelexample.search_user.search_repository.SearchUserRepositoryImlp
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 
 class SearchViewModel(
-    private val repository: SearchUserRepository = SearchUserRepositoryImlp()
+    private val repository: SearchUserRepository
 ) : ViewModel() {
     private val _uiState = MutableStateFlow(SearchUiState())
     val uiState: StateFlow<SearchUiState> = _uiState
+
+    suspend fun insertUsers(users: List<User>) {
+        repository.insertUsers(users)
+    }
 
     fun searchUsers(query: String) {
         viewModelScope.launch {
